@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="sw" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zepox | AI & Historia ya Tanzania</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#06b6d4">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4712/4712139.png">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712139.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; transition: 0.3s; }
+        .glass { backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .dark .glass { background: rgba(15, 23, 42, 0.7); }
+        .chat-scroll { max-height: 350px; overflow-y: auto; scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: #06b6d4; border-radius: 10px; }
+    </style>
+</head>
+<body id="main-body" class="dark bg-slate-950 text-slate-100 min-h-screen">
+
+    <nav class="fixed top-0 w-full z-50 glass px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-black text-cyan-500 tracking-tighter">ZEPOX</h1>
+        <div class="flex items-center gap-4 text-sm font-bold">
+            <button onclick="toggleTheme()" class="p-2 rounded-full glass hover:rotate-12 transition" id="theme-btn">☀️</button>
+            <a href="mailto:zepoxkenny4@gmail.com" class="bg-cyan-500 text-black px-5 py-2 rounded-full text-xs shadow-lg">Email</a>
+        </div>
+    </nav>
+
+    <section class="pt-40 pb-16 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <span class="bg-cyan-500/10 text-cyan-500 text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-[0.3em] border border-cyan-500/20 mb-6 inline-block">Zephania Kennedy Zephaniah</span>
+            <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight tracking-tighter">Zepox <span class="text-cyan-500 italic text-balance">Education.</span></h1>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-12 text-lg italic">Mwandishi, Mtafiti, na Developer kutoka Arusha. Elimu ilianzia Kimandolu na kuhitimu Embarway Sekondari.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="openPayment()" class="bg-cyan-500 text-black px-10 py-4 rounded-2xl font-bold hover:scale-105 transition shadow-lg">Soma Historia (Tsh 1,000)</button>
+                <a href="#ai-assistant" class="border border-slate-700 px-10 py-4 rounded-2xl font-bold hover:bg-white/5 transition">Ongea na AI</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="books" class="py-24 px-6 bg-slate-900/20">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-black mb-16 text-center text-cyan-500 uppercase tracking-[0.4em]">Historia ya Tanzania</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-cyan-400">Toka Mwanzo Hadi Sasa</h3>
+                    <p class="text-slate-400 leading-relaxed text-sm">
+                        Zepox Education Books inachambua safari ya Tanzania kuanzia chimbuko la binadamu kule Olduvai Gorge, utawala wa kiasili, harakati za uhuru, hadi Tanzania ya leo ya kidijitali.
+                    </p>
+                    <button onclick="openPayment()" class="bg-cyan-500 text-black px-8 py-4 rounded-2xl font-bold hover:bg-cyan-400 transition shadow-xl">
+                        Fungua Maktaba Kamili
+                    </button>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="glass p-6 rounded-3xl text-center border border-white/5">
+                        <span class="text-3xl mb-2 block">🛖</span>
+                        <h4 class="font-bold text-cyan-400">Asili</h4>
+                        <p class="text-[10px] opacity-60 italic">Zama za Kale</p>
+                    </div>
+                    <div class="glass p-6 rounded-3xl text-center border border-white/5">
+                        <span class="text-3xl mb-2 block">🚀</span>
+                        <h4 class="font-bold text-cyan-400">Sasa</h4>
+                        <p class="text-[10px] opacity-60 italic">AI & Tech</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-assistant" class="py-16 px-6">
+        <div class="max-w-2xl mx-auto glass rounded-[3rem] p-8 border-2 border-cyan-500/20 shadow-2xl">
+            <h2 class="font-bold text-xl mb-6 text-cyan-400 text-center uppercase tracking-widest italic">Zepox AI</h2>
+            <div id="chat-box" class="chat-scroll space-y-4 mb-8 pr-2 text-sm font-medium">
+                <div class="bg-white/5 p-4 rounded-2xl border border-white/5">
+                    Habari! Mimi ni AI wa Zepox. Uliza kuhusu vitabu, historia ya Tanzania, au mifumo ya AI.
+                </div>
+            </div>
+            <div class="flex gap-2">
+                <input id="user-input" type="text" onkeypress="if(event.key==='Enter') askAI()" placeholder="Andika hapa..." class="flex-1 bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-cyan-500 transition">
+                <button onclick="askAI()" class="bg-cyan-500 text-black px-6 rounded-2xl font-bold hover:bg-cyan-400 transition shadow-lg">🚀</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="payment-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 bg-black/95 backdrop-blur-xl">
+        <div class="glass p-8 rounded-[3rem] max-w-sm w-full text-center border-2 border-cyan-500/30">
+            <div class="text-4xl mb-4">💳</div>
+            <h2 class="text-xl font-bold mb-2">Lipia Kusoma</h2>
+            <p class="text-xs opacity-70 mb-6">Lipia **Tsh 1,000** kupitia **0747712469** (Zephania Kennedy) ili kupata Access Key ya vitabu vyote.</p>
+            <input id="access-key-input" type="text" placeholder="Weka Access Key hapa..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 mb-4 outline-none focus:border-cyan-500 text-center">
+            <button onclick="checkAccess()" class="w-full bg-cyan-500 text-black py-4 rounded-xl font-bold mb-4 shadow-lg hover:scale-105 transition">Fungua Vitabu</button>
+            <button onclick="closePayment()" class="text-[10px] uppercase tracking-widest opacity-50">Ghairi</button>
+        </div>
+    </div>
+
+    <footer class="py-20 px-6 text-center">
+        <div class="max-w-md mx-auto glass p-10 rounded-[3rem] border border-cyan-500/20 shadow-2xl">
+            <h3 class="text-xl font-bold mb-4 italic">Zephania Kennedy</h3>
+            <p class="text-2xl font-black text-cyan-500 mb-2 tracking-widest">0747712469</p>
+            <p class="text-sm opacity-60 italic mb-8 italic">zepoxkenny4@gmail.com</p>
+            <a href="https://wa.me/255747712469" class="block w-full bg-cyan-500 text-black py-4 rounded-2xl font-bold shadow-lg">Tuma Ujumbe WhatsApp</a>
+        </div>
+        <p class="mt-16 opacity-30 text-[9px] uppercase tracking-[0.5em]">© 2026 Zephania Kennedy Zephaniah | Arusha, Tanzania</p>
+    </footer>
+
+    <script>
+        // DATABASE YA AI (MASWALI 20+)
+        const database = {
+            "habari": "Habari! Karibu Zepox Education Books. Nikupe msaada gani?",
+            "mambo": "Safi sana! Karibu kwenye ulimwengu wa Zepox. Unahitaji msaada gani?",
+            "shukrani": "Karibu sana! Tuko hapa kukusaidia kukua kielimu na kiteknolojia.",
+            "asante": "Pamoja sana! Karibu tena wakati wowote ukiwa na swali.",
+            "zepox": "Zepox ni taasisi inayojihusisha na uchapishaji wa vitabu na huduma za AI, ikiongozwa na Zephania Kennedy.",
+            "wewe ni nani": "Mimi ni msaidizi wa kidijitali wa Zephania Kennedy Zephaniah, mwandishi na developer kutoka Arusha.",
+            "mahali": "Ofisi zetu kuu zinapatikana jijini Arusha. Pia tunatoa huduma mtandaoni nchi nzima.",
+            "arusha": "Ndiyo, Zephania anapatikana Arusha. Unaweza kuwasiliana naye kwa namba 0747712469 kwa maelezo zaidi.",
+            "vitabu": "Zepox Education Books inatoa vitabu vya Historia, Mila na Desturi, na Teknolojia. Ungependa kuagiza kipi?",
+            "historia": "Kitabu chetu cha Historia ya Tanzania kinachambua chimbuko la taifa kuanzia Olduvai Gorge hadi leo.",
+            "bei": "Kusoma vitabu vyote kwenye website hii ni Tsh 1,000 tu. Lipia kupitia 0747712469.",
+            "agiza": "Kuweka oda, tuma ujumbe wa WhatsApp kwenda 0747712469 ukiwa na jina lako na mkoa uliopo.",
+            "shule": "Zephania alisoma Shule ya Msingi Kimandolu na Sekondari ya Embarway (Ngorongoro). Alihitimu 2025.",
+            "ai": "Tunatengeneza mifumo ya AI kama WhatsApp Bots kwa biashara 15. Unahitaji kutengenezewa mfumo wako?",
+            "whatsapp bot": "Ndiyo, tunatengeneza AI zinazoweza kujibu wateja wako WhatsApp masaa 24.",
+            "website": "Je, unahitaji website ya kiprofeshonali? Zephania anaweza kukusaidia kuitengeneza kwa gharama nafuu.",
+            "namba": "Namba rasmi ya Zephania Kennedy ni 0747712469. Unaweza kupiga sasa hivi.",
+            "email": "Barua pepe yetu ni zepoxkenny4@gmail.com. Karibu kwa mawasiliano ya kiofisi.",
+            "wamasai": "Zephania amefanya utafiti mkubwa kuhusu Wamasai (hususan kule Ngorongoro). Vitabu vyake vinapatikana.",
+            "wakurya": "Tuna utafiti pia kuhusu chimbuko na historia ya Wakurya kama sehemu ya mradi wa Zepox Books.",
+            "mawasiliano": "Tupate kupitia 0747712469 au barua pepe zepoxkenny4@gmail.com. Tunapatikana Arusha."
+        };
+
+        const SECRET_KEY = "Zepox2026"; 
+
+        function toggleTheme() {
+            const body = document.getElementById('main-body');
+            body.classList.toggle('dark');
+            body.classList.toggle('light');
+        }
+
+        function askAI() {
+            const input = document.getElementById('user-input');
+            const chatBox = document.getElementById('chat-box');
+            const val = input.value.trim().toLowerCase();
+            if (val === "") return;
+
+            chatBox.innerHTML += `<div class="bg-cyan-500/10 p-4 rounded-2xl ml-auto max-w-[85%] text-right font-bold border border-cyan-500/10">${input.value}</div>`;
+            
+            let response = database[val] || "Samahani, sina jibu la moja kwa moja kwa hilo. Tafadhali wasiliana na Zephania Kennedy kwa 0747712469 kwa msaada zaidi.";
+
+            setTimeout(() => {
+                chatBox.innerHTML += `<div class="bg-white/5 p-4 rounded-2xl max-w-[85%] italic border border-white/5 opacity-90">${response}</div>`;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 500);
+
+            input.value = "";
+        }
+
+        function openPayment() { document.getElementById('payment-modal').classList.remove('hidden'); }
+        function closePayment() { document.getElementById('payment-modal').classList.add('hidden'); }
+
+        function checkAccess() {
+            const input = document.getElementById('access-key-input').value;
+            if (input === SECRET_KEY) {
+                alert("Malipo yamethibitishwa! Karibu Zepox Education Library.");
+                window.open("https://drive.google.com/file/d/1Vz-NIlI1ICr6bEELhesOj4RYzRtKCbsR/view?usp=drive_link", "_blank");
+                closePayment();
+            } else {
+                alert("Access Key siyo sahihi. Lipia Tsh 1,000 kwenda 0747712469 upate key.");
+            }
+        }
+
+        // SERVICE WORKER REGISTRATION
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
+            });
+        }
+    </script>
+</body>
+</html>
