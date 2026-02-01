@@ -1,189 +1,374 @@
 <!DOCTYPE html>
 <html lang="sw" class="scroll-smooth">
+
+<head>
+    <link rel="icon" type="image/png" href="zepoxlogo.png">
+
+    <link rel="apple-touch-icon" href="zepoxlogo.png">
+</head>
+<header class="max-w-7xl mx-auto px-6 mt-24 mb-8 flex items-center gap-6">
+    <div class="relative group">
+        <div
+            class="absolute -inset-2 bg-cyan-500 rounded-full blur-md opacity-20 group-hover:opacity-40 transition duration-500">
+        </div>
+        <img src="zepoxlogo.png" alt="Zepox Logo"
+            class="relative w-20 h-20 rounded-full border-2 border-white/10 object-cover shadow-2xl">
+    </div>
+
+    <div>
+        <h1 class="text-4xl font-black text-white tracking-tighter uppercase italic leading-none">
+            Zepox <span class="text-cyan-500">Library</span>
+        </h1>
+        <p class="text-[10px] text-slate-500 uppercase tracking-[0.5em] mt-2 font-bold">
+            Arusha • Maktaba ya Kidijitali
+        </p>
+    </div>
+</header>
+
+<div class="max-w-7xl mx-auto px-6">
+    <hr class="border-white/5">
+</div>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zepox | AI & Historia ya Tanzania</title>
-    
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#06b6d4">
-    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/4712/4712139.png">
-    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712139.png">
+    <title>Zepox Library | Elimu Bure Tanzania</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { darkMode: 'class' }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet">
+
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; transition: 0.3s; }
-        .glass { backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .dark .glass { background: rgba(15, 23, 42, 0.7); }
-        .chat-scroll { max-height: 350px; overflow-y: auto; scroll-behavior: smooth; }
-        ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: #06b6d4; border-radius: 10px; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .glass {
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.7);
+        }
+
+        .chat-scroll {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .book-card {
+            transition: all 0.3s ease;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            border-color: #06b6d4;
+        }
     </style>
 </head>
+
+<head>
+    <link rel="icon" type="image/png" href="zepoxlogo.png">
+    <link rel="apple-touch-icon" href="zepoxlogo.png">
+</head>
+
 <body id="main-body" class="dark bg-slate-950 text-slate-100 min-h-screen">
 
     <nav class="fixed top-0 w-full z-50 glass px-6 py-4 flex justify-between items-center">
-        <h1 class="text-2xl font-black text-cyan-500 tracking-tighter">ZEPOX</h1>
+        <h1 class="text-2xl font-black text-cyan-500 tracking-tighter">ZEPOX LIBRARY</h1>
         <div class="flex items-center gap-4 text-sm font-bold">
-            <button onclick="toggleTheme()" class="p-2 rounded-full glass hover:rotate-12 transition" id="theme-btn">☀️</button>
-            <a href="mailto:zepoxkenny4@gmail.com" class="bg-cyan-500 text-black px-5 py-2 rounded-full text-xs shadow-lg">Email</a>
+            <a href="mailto:zepoxkenny4@gmail.com" class="hover:text-cyan-400 transition">Msaada</a>
+            <a href="https://wa.me/255747712469"
+                class="bg-cyan-500 text-black px-4 py-2 rounded-full text-[10px] uppercase">WhatsApp</a>
         </div>
     </nav>
 
-    <section class="pt-40 pb-16 px-6 text-center">
-        <div class="max-w-4xl mx-auto">
-            <span class="bg-cyan-500/10 text-cyan-500 text-[10px] font-bold px-4 py-2 rounded-full uppercase tracking-[0.3em] border border-cyan-500/20 mb-6 inline-block">Zephania Kennedy Zephaniah</span>
-            <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight tracking-tighter">Zepox <span class="text-cyan-500 italic text-balance">Education.</span></h1>
-            <p class="text-slate-400 max-w-2xl mx-auto mb-12 text-lg italic">Mwandishi, Mtafiti, na Developer kutoka Arusha. Elimu ilianzia Kimandolu na kuhitimu Embarway Sekondari.</p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <button onclick="openPayment()" class="bg-cyan-500 text-black px-10 py-4 rounded-2xl font-bold hover:scale-105 transition shadow-lg">Soma Historia (Tsh 1,000)</button>
-                <a href="#ai-assistant" class="border border-slate-700 px-10 py-4 rounded-2xl font-bold hover:bg-white/5 transition">Ongea na AI</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="books" class="py-24 px-6 bg-slate-900/20">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-black mb-16 text-center text-cyan-500 uppercase tracking-[0.4em]">Historia ya Tanzania</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <h3 class="text-2xl font-bold text-cyan-400">Toka Mwanzo Hadi Sasa</h3>
-                    <p class="text-slate-400 leading-relaxed text-sm">
-                        Zepox Education Books inachambua safari ya Tanzania kuanzia chimbuko la binadamu kule Olduvai Gorge, utawala wa kiasili, harakati za uhuru, hadi Tanzania ya leo ya kidijitali.
+    <section class="max-w-7xl mx-auto mt-5 px-6">
+        <div class="glass p-10 rounded-[3.5rem] border border-white/5 bg-slate-900/40 shadow-2xl">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
+                <div>
+                    <h1 class="text-5xl font-black text-white tracking-tighter uppercase italic">
+                        Zepox <span class="text-cyan-500">Library</span>
+                    </h1>
+                    <p class="text-[10px] text-slate-400 uppercase tracking-[0.4em] mt-3 font-bold">
+                        Elimu Kiganjani Mwako
                     </p>
-                    <button onclick="openPayment()" class="bg-cyan-500 text-black px-8 py-4 rounded-2xl font-bold hover:bg-cyan-400 transition shadow-xl">
-                        Fungua Maktaba Kamili
-                    </button>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="glass p-6 rounded-3xl text-center border border-white/5">
-                        <span class="text-3xl mb-2 block">🛖</span>
-                        <h4 class="font-bold text-cyan-400">Asili</h4>
-                        <p class="text-[10px] opacity-60 italic">Zama za Kale</p>
-                    </div>
-                    <div class="glass p-6 rounded-3xl text-center border border-white/5">
-                        <span class="text-3xl mb-2 block">🚀</span>
-                        <h4 class="font-bold text-cyan-400">Sasa</h4>
-                        <p class="text-[10px] opacity-60 italic">AI & Tech</p>
-                    </div>
+
+                <div class="relative w-full md:w-64 mx-auto">
+                    <input type="text" id="mainSearch" oninput="renderEverything()" placeholder="Tafuta..."
+                        class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm text-white outline-none focus:border-cyan-500 transition-all">
+                </div>
+
+                <div class="flex flex-wrap justify-center md:justify-start gap-3 mt-10">
+                    <button onclick="setFilter('all')"
+                        class="px-6 py-2 rounded-xl bg-cyan-500 text-black text-[10px] font-black uppercase hover:bg-white transition">Zote</button>
+                    <button onclick="setFilter('awali')"
+                        class="px-6 py-2 rounded-xl bg-white/5 text-white text-[10px] font-black uppercase hover:bg-cyan-500 hover:text-black transition">Awali</button>
+                    <button onclick="setFilter('msingi')"
+                        class="px-6 py-2 rounded-xl bg-white/5 text-white text-[10px] font-black uppercase hover:bg-cyan-500 hover:text-black transition">Msingi</button>
+                    <button onclick="setFilter('sekondari')"
+                        class="px-6 py-2 rounded-xl bg-white/5 text-white text-[10px] font-black uppercase hover:bg-cyan-500 hover:text-black transition">Sekondari</button>
+                    <button onclick="setFilter('advanced')"
+                        class="px-6 py-2 rounded-xl bg-white/5 text-white text-[10px] font-black uppercase hover:bg-cyan-500 hover:text-black transition">Advanced</button>
                 </div>
             </div>
-        </div>
     </section>
 
-    <section id="ai-assistant" class="py-16 px-6">
-        <div class="max-w-2xl mx-auto glass rounded-[3rem] p-8 border-2 border-cyan-500/20 shadow-2xl">
-            <h2 class="font-bold text-xl mb-6 text-cyan-400 text-center uppercase tracking-widest italic">Zepox AI</h2>
-            <div id="chat-box" class="chat-scroll space-y-4 mb-8 pr-2 text-sm font-medium">
-                <div class="bg-white/5 p-4 rounded-2xl border border-white/5">
-                    Habari! Mimi ni AI wa Zepox. Uliza kuhusu vitabu, historia ya Tanzania, au mifumo ya AI.
-                </div>
-            </div>
-            <div class="flex gap-2">
-                <input id="user-input" type="text" onkeypress="if(event.key==='Enter') askAI()" placeholder="Andika hapa..." class="flex-1 bg-white/5 border border-white/10 rounded-2xl px-5 py-4 outline-none focus:border-cyan-500 transition">
-                <button onclick="askAI()" class="bg-cyan-500 text-black px-6 rounded-2xl font-bold hover:bg-cyan-400 transition shadow-lg">🚀</button>
-            </div>
+    <section class="px-6 pb-24 mt-32">
+        <div id="booksGrid" class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        </div>
+
+        <div class="flex flex-wrap gap-3 mt-10 justify-center">
+            <button onclick="setFilter('all')" class="...">Zote</button>
+            ...
         </div>
     </section>
+    <section class="max-w-7xl mx-auto my-10 px-6 pb-20">
+        <h2 class="text-cyan-500 font-bold mb-4 italic border-l-4 border-cyan-500 pl-4">Zepox Video Library</h2>
+        <div id="videoGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+    </section>
 
-    <div id="payment-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-6 bg-black/95 backdrop-blur-xl">
-        <div class="glass p-8 rounded-[3rem] max-w-sm w-full text-center border-2 border-cyan-500/30">
-            <div class="text-4xl mb-4">💳</div>
-            <h2 class="text-xl font-bold mb-2">Lipia Kusoma</h2>
-            <p class="text-xs opacity-70 mb-6">Lipia **Tsh 1,000** kupitia **0747712469** (Zephania Kennedy) ili kupata Access Key ya vitabu vyote.</p>
-            <input id="access-key-input" type="text" placeholder="Weka Access Key hapa..." class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 mb-4 outline-none focus:border-cyan-500 text-center">
-            <button onclick="checkAccess()" class="w-full bg-cyan-500 text-black py-4 rounded-xl font-bold mb-4 shadow-lg hover:scale-105 transition">Fungua Vitabu</button>
-            <button onclick="closePayment()" class="text-[10px] uppercase tracking-widest opacity-50">Ghairi</button>
+    <footer class="py-16 px-6 text-center border-t border-white/5">
+        <p class="text-cyan-500 font-black tracking-widest text-lg mb-2">ZEPOX EDUCATION BOOKS</p>
+        <p class="text-[10px] opacity-40 uppercase tracking-[0.5em] mb-6">Designed by Zephania Kennedy | Arusha</p>
+        <div class="flex justify-center gap-6 opacity-60 text-xs">
+            <span>📞 0747712469</span>
+            <span>📧 zepoxkenny4@gmail.com</span>
         </div>
-    </div>
-
-    <footer class="py-20 px-6 text-center">
-        <div class="max-w-md mx-auto glass p-10 rounded-[3rem] border border-cyan-500/20 shadow-2xl">
-            <h3 class="text-xl font-bold mb-4 italic">Zephania Kennedy</h3>
-            <p class="text-2xl font-black text-cyan-500 mb-2 tracking-widest">0747712469</p>
-            <p class="text-sm opacity-60 italic mb-8 italic">zepoxkenny4@gmail.com</p>
-            <a href="https://wa.me/255747712469" class="block w-full bg-cyan-500 text-black py-4 rounded-2xl font-bold shadow-lg">Tuma Ujumbe WhatsApp</a>
-        </div>
-        <p class="mt-16 opacity-30 text-[9px] uppercase tracking-[0.5em]">© 2026 Zephania Kennedy Zephaniah | Arusha, Tanzania</p>
     </footer>
 
     <script>
-        // DATABASE YA AI (MASWALI 20+)
-        const database = {
-            "habari": "Habari! Karibu Zepox Education Books. Nikupe msaada gani?",
-            "mambo": "Safi sana! Karibu kwenye ulimwengu wa Zepox. Unahitaji msaada gani?",
-            "shukrani": "Karibu sana! Tuko hapa kukusaidia kukua kielimu na kiteknolojia.",
-            "asante": "Pamoja sana! Karibu tena wakati wowote ukiwa na swali.",
-            "zepox": "Zepox ni taasisi inayojihusisha na uchapishaji wa vitabu na huduma za AI, ikiongozwa na Zephania Kennedy.",
-            "wewe ni nani": "Mimi ni msaidizi wa kidijitali wa Zephania Kennedy Zephaniah, mwandishi na developer kutoka Arusha.",
-            "mahali": "Ofisi zetu kuu zinapatikana jijini Arusha. Pia tunatoa huduma mtandaoni nchi nzima.",
-            "arusha": "Ndiyo, Zephania anapatikana Arusha. Unaweza kuwasiliana naye kwa namba 0747712469 kwa maelezo zaidi.",
-            "vitabu": "Zepox Education Books inatoa vitabu vya Historia, Mila na Desturi, na Teknolojia. Ungependa kuagiza kipi?",
-            "historia": "Kitabu chetu cha Historia ya Tanzania kinachambua chimbuko la taifa kuanzia Olduvai Gorge hadi leo.",
-            "bei": "Kusoma vitabu vyote kwenye website hii ni Tsh 1,000 tu. Lipia kupitia 0747712469.",
-            "agiza": "Kuweka oda, tuma ujumbe wa WhatsApp kwenda 0747712469 ukiwa na jina lako na mkoa uliopo.",
-            "shule": "Zephania alisoma Shule ya Msingi Kimandolu na Sekondari ya Embarway (Ngorongoro). Alihitimu 2025.",
-            "ai": "Tunatengeneza mifumo ya AI kama WhatsApp Bots kwa biashara 15. Unahitaji kutengenezewa mfumo wako?",
-            "whatsapp bot": "Ndiyo, tunatengeneza AI zinazoweza kujibu wateja wako WhatsApp masaa 24.",
-            "website": "Je, unahitaji website ya kiprofeshonali? Zephania anaweza kukusaidia kuitengeneza kwa gharama nafuu.",
-            "namba": "Namba rasmi ya Zephania Kennedy ni 0747712469. Unaweza kupiga sasa hivi.",
-            "email": "Barua pepe yetu ni zepoxkenny4@gmail.com. Karibu kwa mawasiliano ya kiofisi.",
-            "wamasai": "Zephania amefanya utafiti mkubwa kuhusu Wamasai (hususan kule Ngorongoro). Vitabu vyake vinapatikana.",
-            "wakurya": "Tuna utafiti pia kuhusu chimbuko na historia ya Wakurya kama sehemu ya mradi wa Zepox Books.",
-            "mawasiliano": "Tupate kupitia 0747712469 au barua pepe zepoxkenny4@gmail.com. Tunapatikana Arusha."
-        };
+        let currentCategory = 'all';
 
-        const SECRET_KEY = "Zepox2026"; 
+        // DATABASE YAKO - Sasa unaweza kuandika herufi unavyotaka
+        const books = [
+            // ELIMU YA AWALI (PRE-PRIMARY)
+            { t: "Kutunza Afya", c: "awali", l: "https://drive.google.com/file/d/12cVdHbxQ2qG33v2TAFob5DsTQl7FhpMv/view" },
+            { t: "Stadi za Awali za Maisha", c: "awali", l: "https://drive.google.com/file/d/1RCfyJFECvOHefSjAeEYrGrM3eDUyQ7Eg/view" },
+            { t: "Naipenda Nchi Yangu Tanzania", c: "awali", l: "https://drive.google.com/file/d/1mWZ3lPd-GL8VGCGPSqoXxy9InfvM96LE/view" },
+            { t: "Sanaa Bunifu na Michezo", c: "awali", l: "https://drive.google.com/file/d/16IoHkr65ef9PAPPe9q222OirWQdNGLeF/view" },
+            { t: "Kuhesabu Sayansi na TEHEMA", c: "awali", l: "https://drive.google.com/file/d/1jw04gIlzGkCNCBnc71SycqXWfJ66XerF/view" },
+            { t: "Stadi za Awali za Lugha", c: "awali", l: "https://drive.google.com/file/d/1CNfNsPATlfG0sr20VD07uc3l6fz5OcaN/view" },
 
-        function toggleTheme() {
-            const body = document.getElementById('main-body');
-            body.classList.toggle('dark');
-            body.classList.toggle('light');
+            // SHULE YA MSINGI - DARASA LA 1
+            { t: "Kusoma - Std 1", c: "msingi", l: "https://drive.google.com/file/d/1tjDbgrerkZcvm1TcanFkYJRzJlTClzZ4/view" },
+            { t: "Kuandika - Std 1", c: "msingi", l: "https://drive.google.com/file/d/1UOpnqG8t-mvyVN_Nsu6DazvmcVPXZf7L/view" },
+            { t: "Kuhesabu - Std 1", c: "msingi", l: "https://drive.google.com/file/d/15LuMV2F1_hsypG_CkxDgMja-M3HVr-A-/view" },
+            { t: "Afya na Mazingira - Std 1", c: "msingi", l: "https://drive.google.com/file/d/1zORr6xCEij5cnZkO9wvaWvJpJ-XmI6Lp/view" },
+
+            // SHULE YA MSINGI - DARASA LA 2
+            { t: "Kusoma - Std 2", c: "msingi", l: "https://drive.google.com/file/d/1MBEnolidmYvxN9mslGVF5chPxCe6bRlZ/view" },
+            { t: "Michezo na Sanaa - Std 2", c: "msingi", l: "https://drive.google.com/file/d/1goMIdVGgwAvodGxcRmFnENM7L5S9Q-HY/view" },
+            { t: "Kuhesabu - Std 2", c: "msingi", l: "https://drive.google.com/file/d/1m8ZTjnLmLDFj8gPjkg2IpezEXVRKexeJ/view" },
+            { t: "Afya na Mazingira - Std 2", c: "msingi", l: "https://drive.google.com/file/d/1dPynIu-jLsFhXRPN33iFJ4RSmmpjU0hk/view" },
+            { t: "Kuandika - Std 2", c: "msingi", l: "https://drive.google.com/file/d/1fBJHbLjHz6abze0R9bsUhsjIDvEInmVF/view" },
+
+            // SHULE YA MSINGI - DARASA LA 3
+            { t: "Sayansi - Std 3", c: "msingi", l: "https://drive.google.com/file/d/1jsF_W89czSaez4xw9Gr1jwz3OSm61FMM/view" },
+            { t: "English - Std 3", c: "msingi", l: "https://drive.google.com/file/d/1up1yN5mCD4thInvejwXUEPJwx0k-3oMJ/view" },
+            { t: "Kiswahili - Std 3", c: "msingi", l: "https://drive.google.com/file/d/1cYfexkDwXKgFQ1YP4r6G6hC60KAtchQ8/view" },
+            { t: "Sanaa na Michezo - Std 3", c: "msingi", l: "https://drive.google.com/file/d/1NBeK5P6xDSveQnbdvzBgFW4zRQIlMqZq/view" },
+            { t: "Hisabati - Std 3", c: "msingi", l: "https://drive.google.com/file/d/1RbGlt15vasVkdREqB291UE6N45E9Ln5u/view" },
+            { t: "Historia ya Tanzania na Maadili - Std 3", c: "msingi", l: "https://drive.google.com/file/d/1UWw2VZjqzL-orB6K6TUWRhcymbi5vnN_/view" },
+            { t: "Jiografia na Mazingira - Std 3", c: "msingi", l: "https://drive.google.com/file/d/1DHf5_x2YXRtGESzYdIHNslpYnQmreRGA/view" },
+
+            // SHULE YA MSINGI - DARASA LA 4
+            { t: "Sayansi - Std 4", c: "msingi", l: "https://drive.google.com/file/d/1XlLcr50YhJFdpdP6OqmNgbEN4u6JkEXA/view" },
+            { t: "English - Std 4", c: "msingi", l: "https://drive.google.com/file/d/1WCW6dA8O2ZV5xye9xeYQZBkzvLuvNo0D/view" },
+            { t: "Kiswahili - Std 4", c: "msingi", l: "https://drive.google.com/file/d/1SvQx7Ql-jw-y-B_ggL0FL2dgLGhOEtxn/view" },
+            { t: "Sanaa na Michezo - Std 4", c: "msingi", l: "https://drive.google.com/file/d/1rI6IK3TiZxvJwAl5fyE9i1U-xq6X9gce/view" },
+            { t: "Hisabati - Std 4", c: "msingi", l: "https://drive.google.com/file/d/17f9WY7X_Yn688AkTBbknaCXPe5R_7OZ_/view" },
+            { t: "Historia ya Tanzania na Maadili - Std 4", c: "msingi", l: "https://drive.google.com/file/d/1YLQ5SQnvxHSpEGh23Sf2-Quu6k_q2vI7/view" },
+            { t: "Jiografia na Mazingira - Std 4", c: "msingi", l: "https://drive.google.com/file/d/1yj01iNQrGQ9CXUOjjUANGBFcfUhjG-0S/view" },
+            // SHULE YA MSINGI - DARASA LA 5
+            { t: "Sayansi - Std 5", c: "msingi", l: "https://drive.google.com/file/d/1hiybxAEqTuJ1YetwQceldrRAEvfAyA6I/view" },
+            { t: "English - Std 5", c: "msingi", l: "https://drive.google.com/file/d/1UEUAYwLif0qm6xiR1Zu0-3rRqq3BCJlP/view" },
+            { t: "Kiswahili - Std 5", c: "msingi", l: "https://drive.google.com/file/d/1IDU7hTQjfjvKKrh_kqfRFgEDS1luyf8s/view" },
+            { t: "Sanaa na Michezo - Std 5", c: "msingi", l: "https://drive.google.com/file/d/1eK3OvbQ0Vd9XQ4wbovkOZMsA36NpVzke/view" },
+            { t: "Hisabati - Std 5", c: "msingi", l: "https://drive.google.com/file/d/1QmB_WFvNHTNsSo1yNh2OhI4MTFOXOt1s/view" },
+            { t: "Historia ya Tanzania na Maadili - Std 5", c: "msingi", l: "https://drive.google.com/file/d/1_tgGZlkYwj4_qIhqk4abomyw5pvjelSy/view" },
+            { t: "Stadi za Kazi - Std 5", c: "msingi", l: "https://drive.google.com/file/d/1raXXZsC70nn2mm20y8OCH2m_lerZIeVR/view" },
+
+            // SHULE YA MSINGI - DARASA LA 6
+            { t: "Sayansi - Std 6", c: "msingi", l: "https://drive.google.com/file/d/15vlVR3I6a3C_KAxHjzGyTrMFKrIgPux1/view" },
+            { t: "English - Std 6", c: "msingi", l: "https://drive.google.com/file/d/1n2ryN83kKe3QfCq3uWWa8ZLEaXXCszLD/view" },
+            { t: "Kiswahili - Std 6", c: "msingi", l: "https://drive.google.com/file/d/1zdXhndjit2HXCssUTMa3oD8YXHi8PNNc/view" },
+            { t: "Hisabati - Std 6", c: "msingi", l: "https://drive.google.com/file/d/1hlOWcdRxCVs04nyI9SfvxxLGPjgx_uoP/view" },
+            { t: "Uraia na Maadili - Std 6", c: "msingi", l: "https://drive.google.com/file/d/1qlmlGSEPCflnPfFFCFnvQvvf-7Jf24hF/view" },
+            { t: "Stadi za Kazi - Std 6", c: "msingi", l: "https://drive.google.com/file/d/1E6qnZc7QY_AAA64rpdw9p_n6h4zoXH2E/view" },
+            { t: "Maarifa ya Jamii - Std 6", c: "msingi", l: "https://drive.google.com/file/d/1Ir005PB_lEJKodWR6201Ldr2dcZI2V3M/view" },
+            // SHULE YA MSINGI - DARASA LA 7
+            { t: "Sayansi - Std 7", c: "msingi", l: "https://drive.google.com/file/d/1cxTY3ZC16EXWvJfV49xxt9w1_u4Wy9zp/view" },
+            { t: "English - Std 7", c: "msingi", l: "https://drive.google.com/file/d/1NExLdKmoNWFnPZZNRlDYdm8DHaw8f47F/view" },
+            { t: "Kiswahili - Std 7", c: "msingi", l: "https://drive.google.com/file/d/1TxvpwzVPX7m0kCKqTc2ZIYVIy_NC4mj7/view" },
+            { t: "Hisabati - Std 7", c: "msingi", l: "https://drive.google.com/file/d/1MeRPgbR7YI3BKmKHWB5-ZXjpGxNr7P2H/view" },
+            { t: "Uraia na Maadili - Std 7", c: "msingi", l: "https://drive.google.com/file/d/1fK4utSiT3VVdh5k2DPQj_59bRX37Xzym/view" },
+            { t: "Stadi za Kazi - Std 7", c: "msingi", l: "https://drive.google.com/file/d/1JJizJNwvmjHj99ScOJ6aBidCjbTtQZCm/view" },
+            { t: "Maarifa ya Jamii - Std 7", c: "msingi", l: "https://drive.google.com/file/d/1HUqNrmhu4x9veaW2EpvzEPSOr0zd0cd1/view" },
+            // KIDATO CHA KWANZA (FORM ONE - MTAALA MPYA)
+            { t: "Physics - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1jp5e_nbEeK3MVxzvmYLzTckyGbHr2YL1/view" },
+            { t: "Chemistry - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1l6kkYFUn1HbP8if3LYxv0EuSMGbqn8s-/view" },
+            { t: "Biology - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1FgFNFnM6cujQYvGzqtinxRaxMe2rYX_C/view" },
+            { t: "Basic Mathematics - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/12VQV8b5tSCblfl7svz9vF99O3o0jkjVr/view" },
+            { t: "Geography - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1fsrz3PCxQWcSZHN_HphGT1X23wvL_IHs/view" },
+            { t: "History - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1PUUoKiYWXmLPDlmg6eS_bAgm5swQBF3d/view" },
+            { t: "Business Studies - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1Gjq7b5WEI5N0hBZtqJovsEkjJw-sKx7D/view" },
+            { t: "English - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1cu_jLps6oK8Zo4O2q3-CTn1BUiYIx9D0/view" },
+            { t: "Kiswahili - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/19f8D1ConQV7g7pUyjoLWDZpiEcCIHb0P/view" },
+            { t: "Book Keeping - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1Ibk5UjovZ7nrVz_Bllb8A63geS2ZqRCp/view" },
+            { t: "Animal Health and Production - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1KluZc_8enR6YuzFoAin4e7IiDPa-eYW4/view" },
+            { t: "Computer Science - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/16hS8VZN3ZdbL6N3rOS3pqaGIIMPoLZZ4/view" },
+            { t: "Agriculture - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1vIFzPZ4Sx0J7xT4ack4sWEQ7JAwC1282/view" },
+            { t: "Bible Knowledge - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1JeHJ4Dnn_mAbSFTOBIUrWa12IvsDxOas/view" },
+            { t: "Historia ya Tanzania na Maadili - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1hRmD148IoOUo6fRGdkJ7wRNOzlnIKre3/view" },
+            { t: "Additional Mathematics - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1V83u3ZoBCdSjUXzC9kiwBhVOdUJ4z6xu/view" },
+            { t: "Elimu ya Dini ya Kiislamu - Form 1", c: "sekondari", l: "https://drive.google.com/file/d/1_z-zVa6QMJZX2LsCCKxwVqLycCoxffOi/view" },
+
+            // KIDATO CHA PILI (FORM TWO - MTAALA MPYA)
+            { t: "Physics - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1sEZZIsp2cSTvdeVBhsddvfwZFQVEsA4E/view" },
+            { t: "Chemistry - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/13fZuRrop5ebcCDD3gvrPX3vfGXBP7urz/view" },
+            { t: "Biology - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1NfEvClLyoY-qJlF6Zv6S4hZQK5UHOQTu/view" },
+            { t: "Basic Mathematics - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1P20dFrfEYGWN4dL3-_4g4avT0-SOKlrJ/view" },
+            { t: "Geography - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1KteYmDjOl-p2jlAOV4mJn-VRX5Buzg4E/view" },
+            { t: "History - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1YF5T-Lm_iu2oV-mMtmX0CVyswaAIkbst/view" },
+            { t: "Business Studies - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1oMkkRo4fdwi12Ge84VB8X8c9klvEIaaI/view" },
+            { t: "English - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1qNFIkcWEadOpWwjlisoJoRq9_9sPr-s2/view" },
+            { t: "Kiswahili - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1TMJn-a60RQGeV90hJKzEIejZtzy4o1P8/view" },
+            { t: "Book Keeping - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1tGewFRgXKMn5TcfaQBZn40g5IbbGc9f8/view" },
+            { t: "Computer Science - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1iVwDZaALjp4qYN-nzwcHdizby912H8CJ/view" },
+            { t: "Agriculture - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1aCFMQ1IA10atoXrZSUu-8Fq6h0JtEKZl/view" },
+            { t: "Arabic Language - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1iJqwTIo8F4GM_oFzD3BhIsaH43hpJwN5/view" },
+            { t: "Historia ya Tanzania na Maadili - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1V5sOmQBRybtOMG5cnGTyofl-_-5NZo7u/view" },
+            { t: "Additional Mathematics - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1Cp5FqZg2h6POtsaiJwrdC7DPMLKz3w5e/view" },
+            { t: "Chinese Language - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1C99Fw7z6JrQVKRkYg1mtNsPobNKlZ4ss/view" },
+            { t: "Horticultural Production - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1hY8hHhP25GEmJZghMTnK5L_9-_sSQWr7/view" },
+            { t: "Leather and Footwear - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1fPFe4A2HQhlyQPqCuparHmT7e8vE5RH4/view" },
+            { t: "Engineering Science - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1NWnP9UC1CGW-OMI8P4X4T84ev6nBFOzx/view" },
+            { t: "Civil Draughting - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1hKiGStychRUf-mW1kCnOTN9pD2tqgkwP/view" },
+            { t: "Carpentry & Joinery - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1j_HmDVFr6Uo0PDuSnuGgw2IgHhcrGKl3/view" },
+            { t: "Auto Electric - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/16izM2nvffsJsLdYpBvgshxkIt9s9N61p/view" },
+            { t: "Acting - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1Mp7B3OOdDf7IXs2NxmSBb8GGr00yPDuP/view" },
+            { t: "Agro Mechanics - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1Q1PTtnT3IJM7lF26ZSWJGI86MCpWnaO7/view" },
+            { t: "Arts & Design - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1G8z1Iv1Uj3eJzfunYtYvAw4M6_kE8Ah9/view" },
+            { t: "Auto Body Repair - Form 2", c: "sekondari", l: "https://drive.google.com/file/d/1G8z1Iv1Uj3eJzfunYtYvAw4M6_kE8Ah9/view" },
+
+            // KIDATO CHA TATU (FORM THREE)
+            { t: "Physics - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1W8zvhi89h1ISG_RjUPGNLjKqnNSmB_XN/view" },
+            { t: "Chemistry - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1MkGOoFpDoGcFs80ydv0BJkCbBz_gsDx7/view" },
+            { t: "Biology - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1p_dGDLAwtUmlyUj-3zrE9nFwxMIHf0jq/view" },
+            { t: "Basic Mathematics - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1zu7M1OcwOppIcdV7LKRfjIKnbDhMndZu/view?usp=share_link" },
+            { t: "Geography - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1YR2ipx8EiUTg1r2PU-a688UgRbKSFfYj/view" },
+            { t: "History - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/134Lkg_GyPyg0gpdHfT98QdnHiMKv7H7t/view" },
+            { t: "Civics - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1oSBTbHafAkEb36D-MofC4t_TY-uX4yfy/view" },
+            { t: "English - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1-ozO_8DAuN__JYT2UqYPK2Cg3-8gWhtK/view" },
+            { t: "Kiswahili - Form 3", c: "sekondari", l: "http://drive.google.com/file/d/1bELI_bpBc-pydbd8Cc6wx1UBRwfuqXJo/view" },
+            { t: "Book Keeping - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1Ep9Lrnm6vNMLDnnX-E5Kb1zUf43ofwAQ/view" },
+            { t: "Additional Mathematics - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1nyRYVXu7KXscS1nX_2fKymQkfbaLzQ__/view" },
+            { t: "ICT/Computer - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1LcVqVDSKoZQIwWMbnCvd8kN4yG04woqp/view" },
+            { t: "Arabic Language - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1tAyYSmUM2mmhZZ529aBDSl4YNx1RrJdF/view" },
+            { t: "Agriculture - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/1JHYQ08GWunXVNc7awJ-0zpTsafohEAoQ/view" },
+            { t: "Commerce - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/14LcQl3aF6idj0gITF7W0ryntYzMmo6xL/view" },
+            { t: "Literature - Form 3", c: "sekondari", l: "https://drive.google.com/file/d/171Ys733DOUiARHr6OlmS5qutmgVSuPNf/view" },
+
+            // KIDATO CHA NNE (FORM FOUR)
+            { t: "Physics - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/1u0B8UvAKsTaUAqey6axW0ZJisU1xCwJ_/view" },
+            { t: "Chemistry - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/1CaCWRYQ_wltdTsE9ya-eZtCQDJBIxO9k/view" },
+            { t: "Biology - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/1B2wmCdK1ir0fXLvIOutagyzAQWTxT6eN/view" },
+            { t: "Basic Mathematics - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/1pdrUOzRZXEBcQPFV607aN2c5JfTL8DBO/view" },
+            { t: "Geography - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/1p5oEUAUmR541TrK9WIE2jPFBUP1HoYsZ/view" },
+            { t: "History - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/1v_zmmEZko0HbJQmm1ApLWNsxfDKULYR7/view" },
+            { t: "Civics - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/1QDe2xeyQwUUrEctOAumHWtbm0G6RFcTz/view" },
+            { t: "English - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/16taIGwD0LWFodMzoXaOb4VXX9B1ME3wo/view" },
+            { t: "Kiswahili - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/1lw0e2h9bdZNZkHIlpJBZClasUgIYLkrb/view" },
+            { t: "ICT/Computer - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/1Zz82eCQYVXvY2Ms_4qhQwBYe46ZzYiZT/view" },
+            { t: "Agriculture - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/1ib5ID4mPU2eMB85XGwEkviD7KMUcrgba/view" },
+            { t: "Commerce - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/1r0d2Qc15WijY_JKF8IjQ5bnxM7Pp-1yo/view" },
+            { t: "Literature - Form 4", c: "sekondari", l: "https://drive.google.com/file/d/171Ys733DOUiARHr6OlmS5qutmgVSuPNf/view" },
+
+            // KIDATO CHA TANO NA SITA (ADVANCED LEVEL)
+            { t: "English Language - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1QnB1DYpoNYbODSdeZCPfup1fFzrKgwoT/view" },
+            { t: "Microeconomics - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1Aq7awfn3oUXFwbyLhC5KH_XUPincjaoj/view" },
+            { t: "General and Inorganic Chemistry - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1epCfCWnHqCN94M2u9PWMf1DXu1K-8W-K/view" },
+            { t: "Physical Geography - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1DEwYEo1TKhdggvL5MippGLCL4aIfK1WS/view" },
+            { t: "Advanced Mathematics - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1zxzR3gVvAvQQWijYj6L_YX-AG21V4crf/view" },
+            { t: "Practical Geography - Form 5&6", c: "advanced", l: "https://drive.google.com/file/d/17MLctNNLfLiLZx4tQZcvheQWCBKJgMHp/view" },
+            { t: "Kiswahili - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1I0Xpg8FN2YsnpNYX5CBcNCb3usaOSidM/view" },
+            { t: "Physics - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1LNrPCwpC7Cs7FPoCcxK3cTh3J6xeFIo5/view" },
+            { t: "Academic Communication - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1Jj2FGIodMttXCV6iCcZTrMRXuqX1jNac/view" },
+            { t: "Agriculture - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1pXfOqASr5KdLnQXCcuaQcfgDVQ2MDmzY/view" },
+            { t: "Biology - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1tAbmffqPiXy-miT45rCluqUjYsM7PqvL/view" },
+            { t: "History - Form 5", c: "advanced", l: "https://drive.google.com/file/d/15qs3pWeAbMSemPrOLAJuszs9kj3muHzq/view" },
+            { t: "Literature in English - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1y8-A6Yl5pDzHP8rSnMYsEaAjnWrTZkrL/view" },
+            { t: "Historia ya Tanzania na Maadili - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1ZDk_Z0KXU3J0GIJ1v284XyfglI4pie2j/view" },
+            { t: "Business Studies - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1okZEdIn3qR4pdpinI7GVRjlMXQyu7a-j/view" },
+            { t: "Physical Chemistry - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1CMilXSwDvw9S-yzIDL54lNEBCL5dPFuh/view" },
+            { t: "Fasihi ya Kiswahili - Form 5", c: "advanced", l: "https://drive.google.com/file/d/16ZFt71VotF58rX7gAYMsiN_X-y3Mec5G/view" },
+            { t: "Human Geography - Form 5", c: "advanced", l: "https://drive.google.com/file/d/1DIgklzk9B7UOEhZpNSkM4U_Me41JEZyG/view" },
+            { t: "Agriculture - Form 6", c: "advanced", l: "https://drive.google.com/file/d/1Gq0WA-LSgu4qaFVtF4renbLZynd2S4ep/view" }
+        ];
+
+        const studyVideos = [
+            { t: "Literature: Theories of Literature", id: "z1vgVgafz3o", level: "Kidato cha 3", link: "https://youtu.be/z1vgVgafz3o" },
+            { t: "Literature: Novel and Play Analysis", id: "k8omXwOIdTo", level: "Sekondari", link: "https://youtu.be/k8omXwOIdTo" },
+            { t: "Chemistry: Form Three Lessons", id: "h0ln25YshtA", level: "Kidato cha 3", link: "https://youtu.be/h0ln25YshtA" },
+            { t: "Kiswahili: Uhakiki wa Tamthilia, Riwaya na Ushairi", id: "uYoBpzUOrpw", level: "Sekondari", link: "https://youtu.be/uYoBpzUOrpw" },
+            { t: "Kilio Chetu: Full Movie", id: "IZaGAsnBzdo", level: "Kidato cha 3 & 4", link: "https://youtu.be/IZaGAsnBzdo" },
+            { t: "Ngoswe: Penzi Kitovu cha Uzembe (Movie)", id: "7UA1f3FEq6E", level: "Kidato cha 3 & 4", link: "https://youtu.be/7UA1f3FEq6E" },
+            { t: "Orodha: Full Movie", id: "d6FBdtzLW8k", level: "Kidato cha 3 & 4", link: "https://youtu.be/d6FBdtzLW8k" }
+        ];
+
+        function setFilter(cat) {
+            currentCategory = cat.toLowerCase();
+            renderEverything();
         }
 
-        function askAI() {
-            const input = document.getElementById('user-input');
-            const chatBox = document.getElementById('chat-box');
-            const val = input.value.trim().toLowerCase();
-            if (val === "") return;
+        function renderEverything() {
+            const searchInput = document.getElementById('mainSearch');
+            const searchTerm = searchInput ? searchInput.value.toLowerCase() : "";
 
-            chatBox.innerHTML += `<div class="bg-cyan-500/10 p-4 rounded-2xl ml-auto max-w-[85%] text-right font-bold border border-cyan-500/10">${input.value}</div>`;
-            
-            let response = database[val] || "Samahani, sina jibu la moja kwa moja kwa hilo. Tafadhali wasiliana na Zephania Kennedy kwa 0747712469 kwa msaada zaidi.";
+            // RENDER VITABU
+            const bGrid = document.getElementById('booksGrid');
+            if (bGrid) {
+                const filtered = books.filter(b => {
+                    const matchesSearch = b.t.toLowerCase().includes(searchTerm);
+                    const matchesCat = (currentCategory === 'all' || b.c.toLowerCase() === currentCategory);
+                    return matchesSearch && matchesCat;
+                });
 
-            setTimeout(() => {
-                chatBox.innerHTML += `<div class="bg-white/5 p-4 rounded-2xl max-w-[85%] italic border border-white/5 opacity-90">${response}</div>`;
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }, 500);
+                bGrid.innerHTML = filtered.map(b => `
+                <div class="book-card glass p-6 rounded-[2.5rem] bg-slate-900/40 border border-white/5 transition hover:border-cyan-500/50 shadow-lg">
+                    <span class="text-[9px] text-cyan-500 font-black uppercase tracking-widest">${b.c}</span>
+                    <h3 class="text-white font-bold mt-2 mb-4 text-sm leading-tight h-10 overflow-hidden">${b.t}</h3>
+                    <a href="${b.l}" target="_blank" class="block w-full bg-cyan-500 text-black py-3 rounded-xl text-center text-[10px] font-black uppercase hover:bg-white transition">Soma</a>
+                </div>
+            `).join('');
+            }
 
-            input.value = "";
-        }
-
-        function openPayment() { document.getElementById('payment-modal').classList.remove('hidden'); }
-        function closePayment() { document.getElementById('payment-modal').classList.add('hidden'); }
-
-        function checkAccess() {
-            const input = document.getElementById('access-key-input').value;
-            if (input === SECRET_KEY) {
-                alert("Malipo yamethibitishwa! Karibu Zepox Education Library.");
-                window.open("https://drive.google.com/file/d/1Vz-NIlI1ICr6bEELhesOj4RYzRtKCbsR/view?usp=drive_link", "_blank");
-                closePayment();
-            } else {
-                alert("Access Key siyo sahihi. Lipia Tsh 1,000 kwenda 0747712469 upate key.");
+            // RENDER VIDEO
+            const vGrid = document.getElementById('videoGrid');
+            if (vGrid) {
+                const filteredV = studyVideos.filter(v => v.t.toLowerCase().includes(searchTerm));
+                vGrid.innerHTML = filteredV.map(v => `
+                <div class="video-card glass p-4 rounded-[2.5rem] bg-slate-900/40 border border-white/5 transition hover:border-cyan-500/50">
+                    <div class="relative cursor-pointer overflow-hidden rounded-2xl group" onclick="window.open('${v.link}', '_blank')">
+                        <img src="https://img.youtube.com/vi/${v.id}/mqdefault.jpg" class="w-full grayscale group-hover:grayscale-0 transition duration-500">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="bg-cyan-500 text-black w-10 h-10 rounded-full flex items-center justify-center font-bold opacity-80">▶</div>
+                        </div>
+                    </div>
+                    <h3 class="text-white text-xs font-bold mt-4 px-2 h-10 overflow-hidden">${v.t}</h3>
+                </div>
+            `).join('');
             }
         }
 
-        // SERVICE WORKER REGISTRATION
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(err => console.log(err));
-            });
-        }
+        window.onload = renderEverything;
     </script>
 </body>
+
 </html>

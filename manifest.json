@@ -1,16 +1,16 @@
 {
-  "name": "Zepox Education Books",
+  "name": "Zepox Library",
   "short_name": "Zepox",
-  "description": "Maktaba ya Historia ya Tanzania na Mifumo ya AI",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#020617",
+  "background_color": "#0f172a",
   "theme_color": "#06b6d4",
   "icons": [
     {
-      "src": "https://cdn-icons-png.flaticon.com/512/4712/4712139.png",
+      "src": "zepoxlogo.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
